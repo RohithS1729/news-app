@@ -10,10 +10,10 @@ app.use(bodyParser.json())
 
 
 //dbms
-// mongoose.connect(process.env.CONNECTION_STRING);
-// const db= mongoose.connection;
-// db.on('error',()=>{console.log('did not connect to db')});
-// db.on('open',()=>{console.log('started listening to db')});
+mongoose.connect(process.env.CONNECTION_STRING);
+const db= mongoose.connection;
+db.on('error',()=>{console.log('did not connect to db')});
+db.on('open',()=>{console.log('started listening to db')});
 
 app.get("/test",(req,res)=>{
     res.send("working")
