@@ -1,0 +1,17 @@
+.topicsContainer{
+    display: flex;
+    justify-content: space-around;
+    border-top: 10px;
+    
+}
+.topicsContainer>div{
+    /* color: white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* text-align: center; */
+    /* vertical-align: center; */
+    width: 100px;
+    height: 75px;
+    background-color: rgb(171, 223, 171);
+}

@@ -15,13 +15,10 @@ const db= mongoose.connection;
 db.on('error',()=>{console.log('did not connect to db')});
 db.on('open',()=>{console.log('started listening to db')});
 
-app.get("/test",(req,res)=>{
-    res.send("working")
-})
-
+const router=require("./router/index")
+app.use(router)
 app.listen(8000,()=>{
     console.log('listening')
 })
 
 
-//dd

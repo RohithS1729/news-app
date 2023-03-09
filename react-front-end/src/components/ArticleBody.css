@@ -1,0 +1,28 @@
+.articleBody{
+    padding: 30px;
+}
+.articleTitle{
+    font-size: 5vh;
+    margin-bottom: 10px;
+}
+.aboutTheArticle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.articleImageDiv{
+    background-color: royalblue;
+}
+.articleImageTage{
+    width: 100%;
+    height: 100%;
+}
+.articleDescription{
+    font-size: 2.5vh;
+
+}
+.articleContent{
+    font-size: 2.5vh;
+
+}

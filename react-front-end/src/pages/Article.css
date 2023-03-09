@@ -1,0 +1,6 @@
+.articlePage>main{
+    background-color: pink;
+    display: flex;
+    width: 1000px;
+    margin: 30px auto;
+}
