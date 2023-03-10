@@ -1,19 +1,18 @@
-.postCreationMain{
+.mainMyarticle{
     display: flex;
-    min-height: 750px;
+    /* min-height: 700px; */
 
 }
-.leftPostCreation{
+.leftMyarticle{
     /* background-color: #1abc9c; */
     background-color: rgb(171, 223, 195);
 
     margin-right: 30px;
     width: 25%;
 }
-.RightPostCreation{
+.rightMyarticle{
     width: 75%;
-    /* width: 100px; */
-    /* background-color:white; */
+    background-color:white;
     padding: 40px;
     margin-right: 20px;
 }

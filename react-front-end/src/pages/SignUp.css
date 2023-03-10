@@ -111,3 +111,22 @@
     text-align: left;
     
 }
+
+.signUpMainContianer{
+    display: flex;
+    
+
+}
+.leftSignUp{
+    /* background-color: #1abc9c; */
+    background-color: rgb(171, 223, 195);
+
+    margin-right: 30px;
+    width: 25%;
+}
+.rightSignUp{
+    width: 75%;
+    background-color:white;
+    padding: 40px;
+    margin-right: 20px;
+}

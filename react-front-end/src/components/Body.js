@@ -2,6 +2,7 @@ import React from 'react';
 import NewsCard from './NewsCard';
 
 const Body = ({setArticle,data}) => {
+    // console.log(data)
     return (
         <div>
             <div>

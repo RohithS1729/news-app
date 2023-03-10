@@ -8,32 +8,36 @@ import Footer from './Footer';
 import Header from './Header';
 import SignUp from '../pages/SignUp'
 import PostCreation from '../pages/PostCreation';
+import Topics from './Topics';
+import MyArticle from '../pages/MyArticle';
 
 
 const Router = () => {
     const [article,setArticle]=useState()
     const [isLoggedIn,setIsLoggedIn]=useState({
         loginState:false,
-        userId:'ddddd'
+        userId:'',
+        userName:''
     });
     
     return (
         
         <BrowserRouter>
                 
-                <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
-            <Routes>
-                <Route path='/' element={<Home isLoggedIn={isLoggedIn} setArticle={setArticle} />}></Route>
-                <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn}/>}></Route>
-                <Route path='/signUp' element={<SignUp/>}></Route>
-                <Route path='/createPost' element={<PostCreation isLoggedIn={isLoggedIn}/>}></Route>
 
-                <Route path="/apple" element={<News setArticle={setArticle}/>}></Route>
-                <Route path="/tesla" element={<News setArticle={setArticle}/>}></Route>
-                <Route path="/buisness" element={<News setArticle={setArticle}/>}></Route>
-                <Route path="/techcrunch" element={<News setArticle={setArticle}/>}></Route>
-                <Route path="/wallstreet" element={<News  setArticle={setArticle}/>}></Route>
-                <Route path="/article" element={<Article article={article}/>}></Route>
+            <Routes>
+                <Route path='/' element={<Home isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setArticle={setArticle} />}></Route>
+                <Route path='/login' element={<Login  isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}></Route>
+                <Route path='/signUp' element={<SignUp isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}></Route>
+                <Route path='/createPost' element={<PostCreation isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>}></Route>
+
+                <Route path="/apple" element={<News isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setArticle={setArticle}/>}></Route>
+                <Route path="/tesla" element={<News isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setArticle={setArticle}/>}></Route>
+                <Route path="/buisness" element={<News isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setArticle={setArticle}/>}></Route>
+                <Route path="/techcrunch" element={<News isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setArticle={setArticle}/>}></Route>
+                <Route path="/wallstreet" element={<News isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}  setArticle={setArticle}/>}></Route>
+                <Route path="/article" element={<Article isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} article={article}/>}></Route>
+                <Route path="/myArticle" element={<MyArticle isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} setArticle={setArticle} article={article}/>}></Route>
 
 
             </Routes>

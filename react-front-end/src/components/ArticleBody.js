@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import style from './ArticleBody.css'
 const ArticleBody = ({article}) => {
+    let date=new Date(article.publishedAt)
     return (
         <div className='articleBody'>
             <div className='articleTitle'>
@@ -12,7 +14,7 @@ const ArticleBody = ({article}) => {
                         By: <i>{article.author?article.author:'anonymous'}</i>
                     </div>
                     <div>
-                        Published At: {article.publishedAt}
+                        Published On: {date.toLocaleDateString()} At {date.toLocaleTimeString()}
                     </div>
                 </div>
                 <div className='articleRight'>
@@ -33,6 +35,11 @@ const ArticleBody = ({article}) => {
             </div>
             <div className='articleContent'>
                 {article.content}
+            </div>
+            <div className='articleFullArticle'>
+                {/* {article.content} */}
+                Read Full Article <Link className='link' to={article.url} target='_blank'>Here !</Link>
+
             </div>
         </div>
     );

@@ -105,3 +105,22 @@
     font-size: 1.5vh;
     margin-top: 20px;
 }
+
+.loginMainContainer{
+    display: flex;
+    
+
+}
+.leftloginMain{
+    /* background-color: #1abc9c; */
+    background-color: rgb(171, 223, 195);
+
+    margin-right: 30px;
+    width: 25%;
+}
+.rightloginMain{
+    width: 75%;
+    background-color:white;
+    padding: 40px;
+    margin-right: 20px;
+}

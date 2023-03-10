@@ -7,20 +7,15 @@ import Body from '../components/Body';
 import Footer from '../components/Footer';
 import loading from '../images/loading.gif'
 import styles from './News.css'
+import CompPostCreate from '../components/CompPostCreate';
+import CompRedirect from '../components/CompRedirect';
 
-const News = ({setArticle}) => {
+
+const News = ({isLoggedIn,setArticle,setIsLoggedIn}) => {
     const [topic,setTopic]=useState('')
-    // const [data,setData]=useState([])
+
     const [pageNumber,setPageNumber]=useState(1)
     const[headlines,setHeadlines]=useState([])
-
-
-    // const [transferArticle,settransfer]=useState({})
-    // async function getData(){
-    //     let url=`${process.env.REACT_APP_BASE_URL}/topic?topic=${topic}&limit=5&skip=1`
-    //     let response = await axios.get(url)
-    //     setData(data=>[...data,...response.data])
-    // }
 
 
 
@@ -30,23 +25,23 @@ const News = ({setArticle}) => {
 
     },[])
     useEffect(()=>{
-
+        setHeadlines([])
     },[topic])
     useEffect(()=>{
         if(topic.length>0){
             async function getData(){
-                console.log(pageNumber,'pagenumber')
+
                 
                 // let url=`${process.env.REACT_APP_BASE_URL}/home?limit=5&skip=${pageNumber}`
-                    let url=`${process.env.REACT_APP_BASE_URL}/topic?topic=${topic}&limit=5&skip=${pageNumber}`
+                let url=`${process.env.REACT_APP_BASE_URL}/topic?topic=${topic}&limit=5&skip=${pageNumber}`
 
                 let response = await axios.get(url)
-                if(response.data){
-                    console.log(response.data)
-    
+                if(Array.isArray(response.data)){
                     setHeadlines(data=>[...data,...response.data])
+    
                 }else{
-                    console.log(response,'else')
+                    window.alert('failed to connect to the server ')
+    
                 }
             }
 
@@ -74,21 +69,28 @@ const News = ({setArticle}) => {
 
     return (
         <div className='newsPage'>
+            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+            <main className='newsPageMain'> 
+                <div className='newsPageLeft'>
+                    <Topics isLoggedIn={isLoggedIn}  setTopic={setTopic}/>
+                    <div className='createContainer'>
+                        {isLoggedIn.loginState?<CompPostCreate/>:<CompRedirect/>  }
 
-            {/* <Header/> */}
-            <Topics/>
-            <main>
-                {headlines.length>0?
-                <Body setArticle={setArticle} data={headlines}/>:
-                <div id='loading'>
-                    <img  src={loading} alt="loading ..." />
+                    </div>
+                </div>
+                <div className='newsPageRight'>
+                    {headlines.length>0?
+                    <Body setArticle={setArticle} data={headlines}/>:
+                    <div id='loading'>
+                        <img  src={loading} alt="loading ..." />
+
+                    </div>
+                    
+                    }
 
                 </div>
-                
-                }
-
             </main>
-            {/* <Footer/> */}
+
         </div>
     );
 };

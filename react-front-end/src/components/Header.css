@@ -1,9 +1,57 @@
 .header{
-    background-color: rgb(240, 171, 92);
+    background-color: #1abc9c;
     height: 80px;
     margin-bottom: 30px;
+    
     padding: 10px;
 
     display: flex;
-    justify-content: space-between;    
+    justify-content: space-between;   
+    align-items: center; 
+}
+.logo{
+    font-size: 4vh;
+    color: white;
+
+}
+.headerLeft{
+    margin-left: 10%;
+}
+.headerRight{
+    width: fit-content;
+    margin-right: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.LoginContainer{
+    margin-right: 10%;
+    margin-left: 32px;
+}
+.loginStateBtn{
+	border: none;
+    padding: 16px;
+    width: 125px;
+    /* outline: none; */
+    font-size: 16px;
+    background-color: rgb(63, 63, 63);
+    border: 2px #dddddd solid;
+    border-radius: 14px;
+    color: white;
+}
+.loginStateBtn:hover{
+    cursor: pointer;
+    background-color: #87cec0;
+    border-radius: 16px;
+    font-size: 18px;
+
+    
+}
+.userName{
+    width:400px ;
+    color: white;
+    text-align: right;
+    /* font-weight: 800; */
+    font-size: 3vh;
 }

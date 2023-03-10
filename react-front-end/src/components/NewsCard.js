@@ -1,6 +1,7 @@
 import React from 'react';
 import style from './NewsCard.css'
 import { useNavigate } from 'react-router-dom';
+
 const NewsCard = ({setArticle,newsData}) => {
     const History=useNavigate()
     const redirectToArticle=(val)=>{

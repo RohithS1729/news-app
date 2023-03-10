@@ -7,20 +7,26 @@ const Header = ({isLoggedIn,setIsLoggedIn}) => {
         History('/login')
     }
     const handleLogOut=()=>{
-
+        setIsLoggedIn({
+            loginState:false,
+            userId:'',
+            userName:''
+        })
+        window.alert('Logged Out Successfully')
     }
     return (
         <div className='header'>
             <div className='headerLeft'>
-                <div>
-                    Logo
+                <div className='logo'>
+                    CCB NEWS
                 </div>
 
             </div>
             <div className='headerRight'>
+                {isLoggedIn.loginState?<div className='userName'>Welcome {isLoggedIn.userName}</div>:null}
                 <div className='LoginContainer'>
                     {
-                        isLoggedIn.loginState?<button onClick={handleLogOut}>LogOut</button>:<button onClick={handleLogin}>Log In</button>
+                        isLoggedIn.loginState?<button className='loginStateBtn' onClick={handleLogOut}>LogOut</button>:<button className='loginStateBtn' onClick={handleLogin}>Log In</button>
                     }
                     {/* <button>Login</button> */}
                 </div>

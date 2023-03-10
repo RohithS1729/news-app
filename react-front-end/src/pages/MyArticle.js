@@ -1,30 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import style from './Home.css'
-import axios from 'axios'
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 import Topics from '../components/Topics';
+import style from './MyArticle.css'
+import axios from 'axios'
 import Body from '../components/Body';
 import loading from '../images/loading.gif'
 
-// import dummy from '../components/dummyData';
-import CompPostCreate from '../components/CompPostCreate';
-import CompRedirect from '../components/CompRedirect';
 
-
-
-const Home = ({isLoggedIn,setArticle,setIsLoggedIn}) => {
+const MyArticle = ({isLoggedIn,setArticle,setIsLoggedIn}) => {
     const[headlines,setHeadlines]=useState([])
     const[pageNumber,setPageNumber]=useState(1)
-
-    
-
 
     useEffect(()=>{
    
         async function getData(){
-            let url=`${process.env.REACT_APP_BASE_URL}/home?limit=5&skip=${pageNumber}`
+            let url=`${process.env.REACT_APP_BASE_URL}/createPost?limit=5&skip=${pageNumber}&userId=${isLoggedIn.userId}`
             let response = await axios.get(url)
+            // console.log((response.data))
             if(Array.isArray(response.data)){
                 setHeadlines(data=>[...data,...response.data])
 
@@ -57,35 +49,28 @@ const Home = ({isLoggedIn,setArticle,setIsLoggedIn}) => {
         window.addEventListener('scroll',handleScrollEvent)
     },[])
 
+    return (    
+        <div className='MyArticlePage'>
+            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
 
-    return (
-        <div className='home'>
-                <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
-
-            <main className='homeMain'>
-                <div className='homeLeft'>
+            <main className='mainMyarticle'>
+                <div className='leftMyarticle'>
                     <Topics isLoggedIn={isLoggedIn} setTopic={()=>{}} />
-                    <div className='createContainer'>
-                        {isLoggedIn.loginState?<CompPostCreate/>:<CompRedirect/>  }
-
-                    </div>
-
                 </div>
-                <div className='homeRight'>
+                <div className='rightMyarticle'>
+                {headlines.length>0?
+                    <Body setArticle={setArticle} data={headlines}/>:
+                    <div id='loading'>
+                        <img  src={loading} alt="loading ..." />
 
-                    <div className='bodyContainer'>
-
-                        {headlines.length>0?
-                        <Body setArticle={setArticle} data={headlines}/>:
-                        <div id='loading'>
-                            <img  src={loading} alt="loading ..." />
-                        </div>                
-                        }
                     </div>
+                    
+                    }
                 </div>
             </main>
+            
         </div>
     );
 };
 
-export default Home;
+export default MyArticle;

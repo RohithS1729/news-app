@@ -18,7 +18,8 @@ const  loginService=async(req,res)=>{
         }else if(response.comparePassword(req.body.password)){
             return {
                 msg:'logged in',
-                userId:response._id
+                userId:response._id,
+                userName:response.username
             }
         }else{
             return {
@@ -66,21 +67,23 @@ const SignUpService=async(req,res)=>{
 
 }
 const topicService=async(req,res)=>{
+    
     try{
         let qValue=req.query.topic
+        console.log(qValue)
         let limit=req.query.limit
         let skip=req.query.skip
-        // let url="https://newsapi.org/v2/everything?q=tesla&from=2023-02-08&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}"
         let url;
         if(req.query.topic==='techcrunch'){
             url=`https://newsapi.org/v2/everything?sources=techcrunch&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
             
         }else if(req.query.topic==='wallstreets'){
-            console.log('here')
             url=`https://newsapi.org/v2/everything?domains=wsj.com&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
         }
         else{
-            url=`https://newsapi.org/v2/everything?q=${qValue}&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
+            // url=`https://newsapi.org/v2/everything?q=${qValue}&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
+            url=`https://newsapi.org/v2/everything?q=${qValue}&from=2023-03-09&to=2023-03-09&sortBy=popularity&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
+            
 
         }
         
@@ -88,9 +91,9 @@ const topicService=async(req,res)=>{
         return response.data.articles
         
     }catch(err){
-        res.send({
+        return{
             msg:'error'+err
-        })
+        }
     }
 }
 
@@ -99,7 +102,8 @@ const homeService=async(req,res)=>{
         // let qValue=req.query.topic
         let limit=req.query.limit
         let skip=req.query.skip
-        let url=`https://newsapi.org/v2/top-headlines?country=in&category=general&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
+        let url=`https://newsapi.org/v2/top-headlines?country=in&category=general&from=2023-02-10&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
+        // let url=`https://newsapi.org/v2/top-headlines?country=in&category=general&from=2023-02-10&sortBy=publishedAt&apiKey=d6e6fbf881d94e48893bea73813a2d08&pageSize=${limit}&page=${skip}&language=en`
 
         
         let response=await axios.get(url)
@@ -108,9 +112,11 @@ const homeService=async(req,res)=>{
         // }
         return response.data.articles
     }catch(err){
-        res.send({
+        
+
+        return {
             msg:'error'+err
-        })
+        }
     }
 }
 //==========================

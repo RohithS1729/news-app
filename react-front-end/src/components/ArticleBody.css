@@ -1,9 +1,9 @@
 .articleBody{
-    padding: 30px;
+    /* padding: 30px; */
 }
 .articleTitle{
-    font-size: 5vh;
-    margin-bottom: 10px;
+    font-size: 3.8vh;
+    margin-bottom: 20px;
 }
 .aboutTheArticle{
     display: flex;
@@ -13,6 +13,7 @@
 
 .articleImageDiv{
     background-color: royalblue;
+    margin-bottom: 40px;
 }
 .articleImageTage{
     width: 100%;
@@ -20,9 +21,17 @@
 }
 .articleDescription{
     font-size: 2.5vh;
-
+    
 }
 .articleContent{
     font-size: 2.5vh;
+    
+}
+.articleFullArticle{
+    font-size: 2.8vh;
 
+
+}
+.link{
+    color: red;
 }

@@ -1,6 +1,21 @@
-.articlePage>main{
-    background-color: pink;
+
+.articleMain{
+    /* background-color: pink; */
+    /* display: flex;
+    width: 1000px; */
+    /* margin: 30px auto; */
     display: flex;
-    width: 1000px;
-    margin: 30px auto;
+
+}
+.articleMainLeft{
+    background-color: rgb(171, 223, 195);
+
+    margin-right: 30px;
+    width: 25%;
+}
+.articleMainRight{
+    width: 75%;
+    background-color:white;
+    padding: 0 40px 40px 40px;
+    margin-right: 20px;
 }

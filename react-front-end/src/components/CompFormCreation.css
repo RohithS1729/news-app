@@ -1,0 +1,45 @@
+.createPostForm{
+    /* background-color: yellow; */
+    font-size: 2vh;
+
+
+}
+.buttonformContainer{
+    /* background-color: red; */
+    text-align: right;
+    padding: 10px;
+    
+}
+.btnCreatePost{
+    margin-right: 20%;
+    border:none;
+    cursor: pointer;
+    padding: 16px;
+    width: 100px;
+    background-color: blanchedalmond;
+    border-radius: 10px;
+    border: black solid 1px;
+}
+.createPostForm > div{
+    margin-bottom: 18px;
+}
+.createPostForm>div>label{
+    display: inline-block;
+    width: 150px;
+}
+.createPostForm>div>input{
+    border: none;
+
+    outline: none;
+    border-bottom: 1px solid black;
+    width: 40%
+}
+.createPostForm>div>textarea{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 40%
+}
+.detailsCreatePost{
+    font-size: 3vh;
+    margin-bottom: 20px;
+}
