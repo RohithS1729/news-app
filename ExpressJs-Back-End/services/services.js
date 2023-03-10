@@ -1,7 +1,7 @@
 const {createPostRepo,getPostRepo,updatePostRepo,deletePostRepo}=require('../repository/repository')
 
 const axios =require("axios")
-const UserData = require("../modals/userData")
+const UserData = require("../Modals/userData")
 const savingData=require('../repository/savingData')
 
 
