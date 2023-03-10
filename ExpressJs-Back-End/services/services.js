@@ -104,9 +104,9 @@ const homeService=async(req,res)=>{
         let skip=req.query.skip
         let url=`https://newsapi.org/v2/top-headlines?country=in&category=general&from=2023-02-10&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
         // let url=`https://newsapi.org/v2/top-headlines?country=in&category=general&from=2023-02-10&sortBy=publishedAt&apiKey=d6e6fbf881d94e48893bea73813a2d08&pageSize=${limit}&page=${skip}&language=en`
-
-        
+        console.log('here')
         let response=await axios.get(url)
+        console.log(response)
         // let response={
             
         // }
