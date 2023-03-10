@@ -75,10 +75,15 @@ const topicService=async(req,res)=>{
         let skip=req.query.skip
         let url;
         if(req.query.topic==='techcrunch'){
-            url=`https://newsapi.org/v2/everything?sources=techcrunch&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
+            // url=`https://newsapi.org/v2/everything?sources=techcrunch&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
+            url=`https://newsapi.org/v2/everything?sources=techcrunch&from=2023-03-09&to=2023-03-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
+            console.log(url)
+
             
         }else if(req.query.topic==='wallstreets'){
-            url=`https://newsapi.org/v2/everything?domains=wsj.com&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
+            // url=`https://newsapi.org/v2/everything?domains=wsj.com&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
+            url=`https://newsapi.org/v2/everything?domains=wsj.com&from=2023-03-09&to=2023-03-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
+
         }
         else{
             // url=`https://newsapi.org/v2/everything?q=${qValue}&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
