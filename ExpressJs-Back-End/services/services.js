@@ -9,8 +9,7 @@ const savingData=require('../repository/savingData')
 const  loginService=async(req,res)=>{
     try{
         let response=await UserData.findOne({username:req.body.username})
-        // return response
-        // console.log(response)
+
         if(!response){
             return {
                 msg:'No such user found, please sign up!!'
@@ -70,7 +69,6 @@ const topicService=async(req,res)=>{
     
     try{
         let qValue=req.query.topic
-        console.log(qValue)
         let limit=req.query.limit
         let skip=req.query.skip
         let url;
@@ -79,10 +77,12 @@ const topicService=async(req,res)=>{
             url=`https://newsapi.org/v2/everything?sources=techcrunch&from=2023-03-09&to=2023-03-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
 
             
-        }else if(req.query.topic==='wallstreets'){
+        }else if(req.query.topic==='wallstreet'){
             // url=`https://newsapi.org/v2/everything?domains=wsj.com&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
             url=`https://newsapi.org/v2/everything?domains=wsj.com&from=2023-03-09&to=2023-03-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
 
+        }else if(req.query.topic==='buisness'){
+            url=`https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
         }
         else{
             // url=`https://newsapi.org/v2/everything?q=${qValue}&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
@@ -110,7 +110,7 @@ const homeService=async(req,res)=>{
         // let url=`https://newsapi.org/v2/top-headlines?country=in&category=general&from=2023-02-10&sortBy=publishedAt&apiKey=d6e6fbf881d94e48893bea73813a2d08&pageSize=${limit}&page=${skip}&language=en`
         console.log('here')
         let response=await axios.get(url)
-        console.log(response)
+        console.log(response.data.status)
         // let response={
             
         // }
