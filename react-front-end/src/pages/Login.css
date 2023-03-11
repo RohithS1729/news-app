@@ -1,7 +1,7 @@
 
 .LoginMain{
     background-color: #f0f2f5;
-
+    /* width: 100%; */
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -108,6 +108,7 @@
 
 .loginMainContainer{
     display: flex;
+    width: 100%;
     
 
 }
@@ -123,4 +124,21 @@
     background-color:white;
     padding: 40px;
     margin-right: 20px;
+}
+@media only screen and (max-width: 870px) {
+    .leftloginMain{
+        display: none;
+    }
+    .rightloginMain{
+        margin: 0;
+        padding: 0;
+    }
+    .loginMainContainer{
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+
 }

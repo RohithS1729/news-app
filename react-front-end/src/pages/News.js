@@ -79,6 +79,10 @@ const News = ({isLoggedIn,setArticle,setIsLoggedIn}) => {
                     </div>
                 </div>
                 <div className='newsPageRight'>
+                <div className='createContainer createContainerSmall'>
+                        {isLoggedIn.loginState?<CompPostCreate/>:<CompRedirect/>  }
+
+                    </div>
                     {headlines.length>0?
                     <Body setArticle={setArticle} data={headlines}/>:
                     <div id='loading'>

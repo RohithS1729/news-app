@@ -14,9 +14,10 @@ const MyArticle = ({isLoggedIn,setArticle,setIsLoggedIn}) => {
     useEffect(()=>{
    
         async function getData(){
-            let url=`${process.env.REACT_APP_BASE_URL}/createPost?limit=5&skip=${pageNumber}&userId=${isLoggedIn.userId}`
+            let url=`${process.env.REACT_APP_BASE_URL}/createPost?userId=640a15dc53e6aea4431758fe`
+            // let url=`${process.env.REACT_APP_BASE_URL}/createPost?limit=5&skip=${pageNumber}&userId=${isLoggedIn.userId}`
             let response = await axios.get(url)
-            // console.log((response.data))
+            console.log((response.data))
             if(Array.isArray(response.data)){
                 setHeadlines(data=>[...data,...response.data])
 
@@ -32,7 +33,7 @@ const MyArticle = ({isLoggedIn,setArticle,setIsLoggedIn}) => {
 
 
         
-    },[pageNumber])
+    },[])
 
 
 
@@ -45,9 +46,9 @@ const MyArticle = ({isLoggedIn,setArticle,setIsLoggedIn}) => {
 
     }
 
-    useEffect(()=>{
-        window.addEventListener('scroll',handleScrollEvent)
-    },[])
+    // useEffect(()=>{
+    //     window.addEventListener('scroll',handleScrollEvent)
+    // },[])
 
     return (    
         <div className='MyArticlePage'>

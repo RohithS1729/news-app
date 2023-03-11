@@ -6,6 +6,12 @@ const dotenv=require("dotenv")
 dotenv.config()
 const app=express();
 app.use(cors())
+//image
+const fileUpload=require("express-fileupload")
+app.use(fileUpload({
+    useTempFiles:true
+}))
+
 app.use(bodyParser.json())
 
 

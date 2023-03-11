@@ -19,3 +19,20 @@
     padding: 0 40px 40px 40px;
     margin-right: 20px;
 }
+@media only screen and (max-width: 870px) {
+    .articleMainLeft{
+        display: none;
+    }
+    .articleMainRight{
+        margin: 0;
+        padding: 0;
+    }
+    .articleMain{
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+
+}

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const CompFormCreation = ({isLoggedIn}) => {
     const [postInfo,setPostInfo]=useState({
-        source: { id: null, name: '' },
+        source: '',
         author: '',
         title: '',
         description: '',
@@ -14,15 +14,23 @@ const CompFormCreation = ({isLoggedIn}) => {
         content: '',
         userId:''
       })
+    const [media,changeMedia]=useState('')
+
     const History=useNavigate()
     async function postData(){
-        let url=`${process.env.REACT_APP_BASE_URL}/createPost`
-        postInfo.userId=isLoggedIn.userId
-        let response=await axios.post(url,postInfo)
-        console.log(response)
+        let file=new FormData()
+        file.append('media',media);
+
+        let url=`${process.env.REACT_APP_BASE_URL}/createPost?name=${postInfo.source}&author=${postInfo.author}&title=${postInfo.title}&content=${postInfo.content}&userId=${isLoggedIn.userId}&description=${postInfo.description}`
+        // postInfo.userId=isLoggedIn.userId
+        let response=await axios.post(url,file)
+        if(response.data.msg){
+            handleSubmit()
+        }
     }
     const handleSubmit=()=>{
-        // History('/myArticle')
+        History('/myArticle')
+        console.log()
     }
     return (
         <div>
@@ -61,7 +69,11 @@ const CompFormCreation = ({isLoggedIn}) => {
                     </div> */}
                     <div>
                         <label>Image :</label>
-                        <input required type={'text'}/>
+                        {/* <input required type={'text'}/> */}
+                        <input className='pictureInput' onChange={(e)=>{
+            
+                            changeMedia(e.target.files[0])
+                        }} type={'file'}/>
                         
                     </div>
                     <div>
@@ -76,7 +88,7 @@ const CompFormCreation = ({isLoggedIn}) => {
                     </div> */}
                     <div className='buttonformContainer'>
 
-                        <button onClick={handleSubmit} className='btnCreatePost' type='submit'>submit</button>
+                        <button  className='btnCreatePost' type='submit'>submit</button>
                     </div>
                 </form>
             </main>

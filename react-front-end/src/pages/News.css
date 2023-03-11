@@ -30,3 +30,20 @@
     padding: 40px;
     margin-right: 20px;
 }
+@media only screen and (max-width: 870px) {
+    .newsPageLeft{
+        display: none;
+    }
+    .newsPageRight{
+        margin: 0;
+        padding: 0;
+    }
+    .newsPageMain{
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+
+}

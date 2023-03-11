@@ -13,9 +13,9 @@ const NewsCard = ({setArticle,newsData}) => {
         <div className='CardContainer' onClick={()=>{redirectToArticle(newsData)}}>
             
             
-                <div className='imageDiv'>
-                     <img className='imageTag' src={newsData.urlToImage} alt=" related to news"/>
-                </div>
+            <div className='imageDiv'>
+                    <img className='imageTag' src={newsData.urlToImage} alt=" related to news"/>
+            </div>
             
 
             <div className='detailsDiv'>

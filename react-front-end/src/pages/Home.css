@@ -16,8 +16,8 @@
 
 }
 .homeLeft{
-    /* background-color: #1abc9c; */
     background-color: rgb(171, 223, 195);
+    /* background-color: black; */
 
     margin-right: 30px;
     width: 25%;
@@ -27,4 +27,23 @@
     background-color:white;
     padding: 40px;
     margin-right: 20px;
+}
+
+
+@media only screen and (max-width: 870px) {
+    .homeLeft{
+        display: none;
+    }
+    .homeRight{
+        margin: 0;
+        padding: 0;
+    }
+    .homeMain{
+        display: flex;
+        justify-content: center;
+    }
+
+
+
+
 }

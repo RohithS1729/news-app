@@ -4,7 +4,8 @@ const axios =require("axios")
 const UserData = require("../Modals/userData")
 const savingData=require('../repository/savingData')
 
-
+let apiDate=new Date().toISOString().slice(0,10)
+console.log(apiDate)
 
 const  loginService=async(req,res)=>{
     try{
@@ -73,20 +74,16 @@ const topicService=async(req,res)=>{
         let skip=req.query.skip
         let url;
         if(req.query.topic==='techcrunch'){
-            // url=`https://newsapi.org/v2/everything?sources=techcrunch&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
-            url=`https://newsapi.org/v2/everything?sources=techcrunch&from=2023-03-09&to=2023-03-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
-
+            url=`https://newsapi.org/v2/everything?sources=techcrunch&from=${apiDate}&to=2023-03-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
             
         }else if(req.query.topic==='wallstreet'){
-            // url=`https://newsapi.org/v2/everything?domains=wsj.com&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
-            url=`https://newsapi.org/v2/everything?domains=wsj.com&from=2023-03-09&to=2023-03-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
+            url=`https://newsapi.org/v2/everything?domains=wsj.com&from=${apiDate}&to=2023-03-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
 
         }else if(req.query.topic==='buisness'){
             url=`https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
         }
         else{
-            // url=`https://newsapi.org/v2/everything?q=${qValue}&from=2023-02-09&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
-            url=`https://newsapi.org/v2/everything?q=${qValue}&from=2023-03-09&to=2023-03-09&sortBy=popularity&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
+            url=`https://newsapi.org/v2/everything?q=${qValue}&from=${apiDate}&to=2023-03-10&sortBy=popularity&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
             
 
         }
@@ -106,14 +103,9 @@ const homeService=async(req,res)=>{
         // let qValue=req.query.topic
         let limit=req.query.limit
         let skip=req.query.skip
-        let url=`https://newsapi.org/v2/top-headlines?country=in&category=general&from=2023-02-10&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
-        // let url=`https://newsapi.org/v2/top-headlines?country=in&category=general&from=2023-02-10&sortBy=publishedAt&apiKey=d6e6fbf881d94e48893bea73813a2d08&pageSize=${limit}&page=${skip}&language=en`
-        console.log('here')
+        let url=`https://newsapi.org/v2/top-headlines?country=in&category=general&from=${apiDate}&sortBy=publishedAt&apiKey=${process.env.NEWS_KEY}&pageSize=${limit}&page=${skip}&language=en`
         let response=await axios.get(url)
-        console.log(response.data.status)
-        // let response={
-            
-        // }
+
         return response.data.articles
     }catch(err){
         
