@@ -58,7 +58,7 @@ const Home = ({isLoggedIn,setArticle,setIsLoggedIn}) => {
 
     return (
         <div className='home'>
-                <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+                <Header setTopic={()=>{}} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
 
             <main className='homeMain'>
                 <div className='homeLeft'>

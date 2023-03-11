@@ -69,7 +69,7 @@ const News = ({isLoggedIn,setArticle,setIsLoggedIn}) => {
 
     return (
         <div className='newsPage'>
-            <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+            <Header setTopic={setTopic} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
             <main className='newsPageMain'> 
                 <div className='newsPageLeft'>
                     <Topics isLoggedIn={isLoggedIn}  setTopic={setTopic}/>

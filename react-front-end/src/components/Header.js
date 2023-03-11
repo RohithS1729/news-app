@@ -2,7 +2,7 @@ import React from 'react';
 import style from './Header.css'
 import { useNavigate } from 'react-router-dom';
 import Topics from './Topics';
-const Header = ({isLoggedIn,setIsLoggedIn}) => {
+const Header = ({isLoggedIn,setIsLoggedIn,setTopic}) => {
     const History=useNavigate()
     const handleLogin=()=>{
         History('/login')
@@ -58,7 +58,7 @@ const Header = ({isLoggedIn,setIsLoggedIn}) => {
                         <i className="fa fa-caret-down"></i>
                         </button>
                         <div className="dropdown-content">
-                            <Topics isLoggedIn={isLoggedIn} setTopic={()=>{}} />
+                            <Topics isLoggedIn={isLoggedIn} setTopic={setTopic} />
 
                         </div>
                     </div>
