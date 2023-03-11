@@ -21,9 +21,7 @@ const SignUp = ({isLoggedIn,setIsLoggedIn}) => {
 
 
         const response=await axios.post(url,userData)
-        console.log(response.data)
     }
-    // console.log(userData.data)
     return (
         <div className='signUpPage'>
             <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>

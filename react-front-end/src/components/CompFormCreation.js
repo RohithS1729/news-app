@@ -30,7 +30,7 @@ const CompFormCreation = ({isLoggedIn}) => {
     }
     const handleSubmit=()=>{
         History('/myArticle')
-        console.log()
+        
     }
     return (
         <div>

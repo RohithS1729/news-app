@@ -10,7 +10,7 @@ const NewsCard = ({setArticle,newsData}) => {
 
     }
     return (
-        <div className='CardContainer' onClick={()=>{redirectToArticle(newsData)}}>
+        <div className='CardContainer'  onClick={()=>{redirectToArticle(newsData)}}>
             
             
             <div className='imageDiv'>

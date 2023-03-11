@@ -52,12 +52,12 @@ const Header = ({isLoggedIn,setIsLoggedIn}) => {
                         }
                        
                     </div>
-                <div class="navbar">
-                    <div class="dropdown">
-                        <button class="dropbtn">Dropdown
-                        <i class="fa fa-caret-down"></i>
+                <div className="navbar">
+                    <div className="dropdown">
+                        <button className="dropbtn">Dropdown
+                        <i className="fa fa-caret-down"></i>
                         </button>
-                        <div class="dropdown-content">
+                        <div className="dropdown-content">
                             <Topics isLoggedIn={isLoggedIn} setTopic={()=>{}} />
 
                         </div>

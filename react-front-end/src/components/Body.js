@@ -7,7 +7,7 @@ const Body = ({setArticle,data}) => {
             <div>
                 {data.length>0?data.map(val=>{
                     return (
-                        <NewsCard setArticle={setArticle} newsData={val}/>
+                        <NewsCard key={val.title} setArticle={setArticle} newsData={val}/>
                     )
                 }):'loading . . .'}
             </div>
